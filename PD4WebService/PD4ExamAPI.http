@@ -1,0 +1,6 @@
+@PD4ExamAPI_HostAddress = http://localhost:5216
+
+GET {{PD4ExamAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

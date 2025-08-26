@@ -1,0 +1,887 @@
+[
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.ExternalResourceController",
+    "Method": "Get",
+    "RelativePath": "api/external-resources/get/by-id/{resourceID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resourceID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.ExternalResource",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.GameSessionController",
+    "Method": "Delete",
+    "RelativePath": "api/gamesession/delete/by-id/{gameSessionID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gameSessionID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.GameSessionController",
+    "Method": "GetAllGameSessions",
+    "RelativePath": "api/gamesession/get/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PD4ExamAPI.Models.GameSession, PD4WebService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.GameSessionController",
+    "Method": "GetByMazeID",
+    "RelativePath": "api/gamesession/get/all/by-mazeid/{mazeID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PD4ExamAPI.Models.GameSession, PD4WebService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.GameSessionController",
+    "Method": "GetByPlayerID",
+    "RelativePath": "api/gamesession/get/all/by-playerid/{playerID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PD4ExamAPI.Models.GameSession, PD4WebService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.GameSessionController",
+    "Method": "GetByID",
+    "RelativePath": "api/gamesession/get/by-id/{gameSessionID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gameSessionID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.GameSession",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.GameSessionController",
+    "Method": "Post",
+    "RelativePath": "api/gamesession/post/{mazeID},{playerID}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "playerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.GameSessionController",
+    "Method": "Put",
+    "RelativePath": "api/gamesession/put/{gameSessionID},{mazeID},{playerID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gameSessionID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "playerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.ImageController",
+    "Method": "Delete",
+    "RelativePath": "api/images/delete/by-id/{imageID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.ImageController",
+    "Method": "DeleteByName",
+    "RelativePath": "api/images/delete/by-name/{imageName}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.ImageController",
+    "Method": "GetByID",
+    "RelativePath": "api/images/get/by-id/{imageID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.Image",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.ImageController",
+    "Method": "GetByName",
+    "RelativePath": "api/images/get/by-name/{imageName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.Image",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.ImageController",
+    "Method": "Post",
+    "RelativePath": "api/images/post/{imageName},{imageLink}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageName",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "imageLink",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.ImageController",
+    "Method": "Put",
+    "RelativePath": "api/images/put/by-id/{imageID}/{imageName},{imageLink}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "imageName",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "imageLink",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.ImageController",
+    "Method": "PutByName",
+    "RelativePath": "api/images/put/by-name/{imageName},{imageLink}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imageName",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "imageLink",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeTileController",
+    "Method": "Delete",
+    "RelativePath": "api/maze-tile/delete/{mazeID}/{x},{y}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "x",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "y",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeTileController",
+    "Method": "DeleteAllFromMaze",
+    "RelativePath": "api/maze-tile/delete/all/{mazeID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeTileController",
+    "Method": "Get",
+    "RelativePath": "api/maze-tile/get/{mazeID}/{x},{y}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "x",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "y",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.MazeTile",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeTileController",
+    "Method": "GetAllFromMaze",
+    "RelativePath": "api/maze-tile/get/all/{mazeID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PD4ExamAPI.Models.MazeTile, PD4WebService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeTileController",
+    "Method": "Post",
+    "RelativePath": "api/maze-tile/post/{mazeID}/{x},{y},{type},{density}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "x",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "y",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "density",
+        "Type": "System.Double",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.MazeTile",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeTileController",
+    "Method": "Put",
+    "RelativePath": "api/maze-tile/put/density/{mazeID}/,{x},{y}/{density}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "x",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "y",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "density",
+        "Type": "System.Double",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeTileController",
+    "Method": "Put",
+    "RelativePath": "api/maze-tile/put/type/{mazeID}/,{x},{y}/{tileType}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "tileType",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "x",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "y",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeController",
+    "Method": "Delete",
+    "RelativePath": "api/maze/delete/by-id/{mazeID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeController",
+    "Method": "GetByID",
+    "RelativePath": "api/maze/get/by-id/{mazeID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.Maze",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeController",
+    "Method": "GetByName",
+    "RelativePath": "api/maze/get/by-name/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.Maze",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeController",
+    "Method": "Post",
+    "RelativePath": "api/maze/post/{name},{width},{height}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "width",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "height",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeController",
+    "Method": "Post",
+    "RelativePath": "api/maze/post/secondary-maze/{name},{originalMazeID}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "originalMazeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.MazeController",
+    "Method": "Put",
+    "RelativePath": "api/maze/put/{name},{width},{height}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "width",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "height",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayerController",
+    "Method": "Delete",
+    "RelativePath": "api/player/delete/{playerID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayerController",
+    "Method": "Get",
+    "RelativePath": "api/player/get/{playerID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.Player",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayerController",
+    "Method": "Post",
+    "RelativePath": "api/player/post/{name}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayerController",
+    "Method": "Put",
+    "RelativePath": "api/player/put/{playerID}/{name}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
