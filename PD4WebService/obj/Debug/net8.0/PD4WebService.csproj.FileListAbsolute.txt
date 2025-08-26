@@ -169,3 +169,4 @@ C:\DAE-local\2425\PlatDev4\webservice\PD4WebService\obj\Debug\net8.0\rpswa.dswa.
 C:\DAE-local\2425\PlatDev4\webservice\PD4WebService\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\DAE-local\2425\PlatDev4\webservice\PD4WebService\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\DAE-local\2425\PlatDev4\webservice\PD4WebService\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\DAE-local\2425\PlatDev4\webservice\PD4WebService\obj\Debug\net8.0\PD4WebService.sourcelink.json

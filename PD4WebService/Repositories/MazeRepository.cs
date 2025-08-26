@@ -74,7 +74,6 @@ namespace PD4ExamAPI.Repositories
                     }
                     else
                     {
-
                         //Comment this and uncomment the random part to have random walls
                         tile = _mazeTileRepository.GenerateTile(x, y, "T", 0, newMaze.MazeId);
 
