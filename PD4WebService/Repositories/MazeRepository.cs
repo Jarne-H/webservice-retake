@@ -90,6 +90,7 @@ namespace PD4ExamAPI.Repositories
                     }
                     //TileId = _context.MazeTiles.Any() ? _context.MazeTiles.Max(t => t.TileId) + 1 : 1, // Ensure unique TileId
                     tile.TileId = lastTileID++;
+                    newMaze.MazeTiles.Add(tile);
                     _context.Add(tile);
                 }
             }
