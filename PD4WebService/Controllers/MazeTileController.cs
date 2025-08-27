@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using PD4ExamAPI.Models;
 using PD4ExamAPI.Repositories;
 
 namespace PD4ExamAPI.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("api/maze-tile")]
     [ApiController]
     public class MazeTileController : Controller
@@ -20,6 +22,7 @@ namespace PD4ExamAPI.Controllers
 
 
         [HttpGet("get/{mazeID}/{x},{y}")]
+        [EnableCors("AllowAll")]
         public MazeTile? Get([FromRoute] int mazeID, [FromRoute] int x, [FromRoute] int y)
         {
             return _mazeTileRepository.GetFromMazeCoordinate(mazeID, x, y);
@@ -27,6 +30,7 @@ namespace PD4ExamAPI.Controllers
 
         //get by maze name
         [HttpGet("get/all/{mazeID}")]
+        [EnableCors("AllowAll")]
         public IEnumerable<MazeTile> GetAllFromMaze([FromRoute] int mazeID)
         {
             return _mazeTileRepository.GetAllFromMaze(mazeID);
@@ -34,6 +38,7 @@ namespace PD4ExamAPI.Controllers
 
         //delete all tiles from mazeid
         [HttpDelete("delete/all/{mazeID}")]
+        [EnableCors("AllowAll")]
         public void DeleteAllFromMaze([FromRoute] int mazeID)
         {
             IEnumerable<MazeTile> tiles = _mazeTileRepository.GetAllFromMaze(mazeID);
@@ -46,6 +51,7 @@ namespace PD4ExamAPI.Controllers
 
         //post
         [HttpPost("post/{mazeID}/{x},{y},{type},{density}")]
+        [EnableCors("AllowAll")]
         public MazeTile Post([FromRoute] int mazeID, [FromRoute] int x, [FromRoute] int y, [FromRoute] string type, [FromRoute] double density)
         {
             //check if the tile already exists
@@ -64,18 +70,21 @@ namespace PD4ExamAPI.Controllers
 
 
         [HttpPut("put/type/{mazeID}/,{x},{y}/{tileType}")]
+        [EnableCors("AllowAll")]
         public void Put([FromRoute] int mazeID, [FromRoute] string tileType, [FromRoute] int x, [FromRoute] int y)
         {
             _mazeTileRepository.SetTileType(x, y, mazeID, tileType);
         }
 
         [HttpPut("put/density/{mazeID}/,{x},{y}/{density}")]
+        [EnableCors("AllowAll")]
         public void Put([FromRoute] int mazeID, [FromRoute] int x, [FromRoute] int y, [FromRoute] double density)
         {
             _mazeTileRepository.SetTileDensity(x, y, mazeID, density);
         }
 
         [HttpDelete("delete/{mazeID}/{x},{y}")]
+        [EnableCors("AllowAll")]
         public void Delete([FromRoute] int mazeID, [FromRoute] int x, [FromRoute] int y)
         {
             //check if the tile exists before attempting to delete it

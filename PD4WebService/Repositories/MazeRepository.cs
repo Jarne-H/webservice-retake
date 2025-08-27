@@ -50,15 +50,24 @@ namespace PD4ExamAPI.Repositories
                 CreationDate = DateOnly.FromDateTime(DateTime.Now),
                 Name = name,
                 Density = 0,
-
-                //make sure maze ID is unique
+                MazeTiles = new List<MazeTile>(),
                 MazeId = _context.Mazes.Any() ? _context.Mazes.Max(m => m.MazeId) + 1 : 1
             };
 
             _context.Add<Maze>(newMaze);
+            _context.SaveChanges(); // Ensure MazeId is set
 
-            //newMaze.MazeTiles = tiles; // Associate the tiles with the maze
+            // Now generate and add tiles
+            ICollection<MazeTile> tiles = GenerateMazeTiles(width, height, newMaze);
+            newMaze.MazeTiles = tiles;
 
+            // AddRange is more efficient and ensures tracking
+            _context.MazeTiles.AddRange(tiles);
+            _context.SaveChanges();
+        }
+
+        private ICollection<MazeTile> GenerateMazeTiles(int width, int height, Maze newMaze)
+        {
             int lastTileID = _context.MazeTiles.Any() ? _context.MazeTiles.Max(t => t.TileId) + 1 : 1;
 
             for (int y = 0; y < width; y++)
@@ -76,26 +85,16 @@ namespace PD4ExamAPI.Repositories
                     {
                         //Comment this and uncomment the random part to have random walls
                         tile = _mazeTileRepository.GenerateTile(x, y, "T", 0, newMaze.MazeId);
-
-                        //Random random = new Random();
-                        //int chanceForWall = random.Next(1, 100);
-                        //if (chanceForWall <= newMaze.Density)
-                        //{
-                        //    tile = _mazeTileRepository.GenerateTile(x, y, "W", chanceForWall, newMaze.MazeId);
-                        //}
-                        //else
-                        //{
-                        //    tile = _mazeTileRepository.GenerateTile(x, y, "T", chanceForWall, newMaze.MazeId);
-                        //}
                     }
                     //TileId = _context.MazeTiles.Any() ? _context.MazeTiles.Max(t => t.TileId) + 1 : 1, // Ensure unique TileId
+                    //Console.WriteLine($"CWL: Tile {tile.TileId} generated: {tile.RowIndex} x {tile.ColumnIndex}");
+                    //Debug.WriteLine($"DWL: Tile {tile.TileId} generated: {tile.RowIndex} x {tile.ColumnIndex}");
                     tile.TileId = lastTileID++;
                     newMaze.MazeTiles.Add(tile);
                     _context.Add(tile);
                 }
             }
-
-            _context.SaveChanges();
+            return newMaze.MazeTiles;
         }
 
         //create a new maze with originalMazeID

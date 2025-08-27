@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using PD4ExamAPI.Models;
 using PD4ExamAPI.Repositories;
 
 namespace PD4ExamAPI.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("api/gamesession")]
     [ApiController]
     public class GameSessionController : Controller
@@ -17,6 +19,7 @@ namespace PD4ExamAPI.Controllers
 
         //Get by GameSessionId, MazeId
         [HttpGet("get/all/by-mazeid/{mazeID}")]
+        [EnableCors("AllowAll")]
         public List<GameSession> GetByMazeID([FromRoute] int mazeID)
         {
             GameSessionRepository gameSessionRepository = new GameSessionRepository(_context);
@@ -25,6 +28,7 @@ namespace PD4ExamAPI.Controllers
 
         //get by GameSessionId, PlayerId
         [HttpGet("get/all/by-playerid/{playerID}")]
+        [EnableCors("AllowAll")]
         public List<GameSession> GetByPlayerID([FromRoute] int playerID)
         {
             GameSessionRepository gameSessionRepository = new GameSessionRepository(_context);
@@ -33,6 +37,7 @@ namespace PD4ExamAPI.Controllers
 
         //get all game sessions
         [HttpGet("get/all")]
+        [EnableCors("AllowAll")]
         public List<GameSession> GetAllGameSessions()
         {
             GameSessionRepository gameSessionRepository = new GameSessionRepository(_context);
@@ -41,6 +46,7 @@ namespace PD4ExamAPI.Controllers
 
         //get by GameSessionId
         [HttpGet("get/by-id/{gameSessionID}")]
+        [EnableCors("AllowAll")]
         public GameSession? GetByID([FromRoute] int gameSessionID)
         {
             GameSessionRepository gameSessionRepository = new GameSessionRepository(_context);
@@ -49,6 +55,7 @@ namespace PD4ExamAPI.Controllers
 
         //Create a new game session
         [HttpPost("post/{mazeID},{playerID}")]
+        [EnableCors("AllowAll")]
         public void Post([FromRoute] int mazeID, [FromRoute] int playerID)
         {
             GameSessionRepository gameSessionRepository = new GameSessionRepository(_context);
@@ -57,6 +64,7 @@ namespace PD4ExamAPI.Controllers
 
         //Update an existing game session
         [HttpPut("put/{gameSessionID},{mazeID},{playerID}")]
+        [EnableCors("AllowAll")]
         public void Put([FromRoute] int gameSessionID, [FromRoute] int mazeID, [FromRoute] int playerID)
         {
             GameSessionRepository gameSessionRepository = new GameSessionRepository(_context);
@@ -65,6 +73,7 @@ namespace PD4ExamAPI.Controllers
 
         //Delete a game session by GameSessionId
         [HttpDelete("delete/by-id/{gameSessionID}")]
+        [EnableCors("AllowAll")]
         public void Delete([FromRoute] int gameSessionID)
         {
             GameSessionRepository gameSessionRepository = new GameSessionRepository(_context);

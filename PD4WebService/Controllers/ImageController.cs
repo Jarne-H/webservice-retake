@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using PD4ExamAPI.Models;
 using PD4ExamAPI.Repositories;
 
 namespace PD4ExamAPI.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("api/images")]
     [ApiController]
     public class ImageController : Controller
@@ -20,6 +22,7 @@ namespace PD4ExamAPI.Controllers
 
         //Get by imageID
         [HttpGet("get/by-id/{imageID}")]
+        [EnableCors("AllowAll")]
         public Image? GetByID([FromRoute] int imageID)
         {
             Image? image = _imageRepository.GetByID(imageID);
@@ -32,6 +35,7 @@ namespace PD4ExamAPI.Controllers
 
         //get by imageName
         [HttpGet("get/by-name/{imageName}")]
+        [EnableCors("AllowAll")]
         public Image? GetByName([FromRoute] string imageName)
         {
             List<Image> images = _imageRepository.GetByName(imageName);
@@ -43,12 +47,14 @@ namespace PD4ExamAPI.Controllers
         }
         //create, update, delete image
         [HttpPost("post/{imageName},{imageLink}")]
+        [EnableCors("AllowAll")]
         public void Post([FromRoute] string imageName, [FromRoute] string imageLink)
         {
             _imageRepository.AddNewImage(imageName, imageLink);
         }
 
         [HttpPut("put/by-id/{imageID}/{imageName},{imageLink}")]
+        [EnableCors("AllowAll")]
         public void Put([FromRoute] int imageID, [FromRoute] string imageName, [FromRoute] string imageLink)
         {
             _imageRepository.UpdateByID(imageID, imageName, imageLink);
@@ -56,12 +62,14 @@ namespace PD4ExamAPI.Controllers
 
         //update by imageName
         [HttpPut("put/by-name/{imageName},{imageLink}")]
+        [EnableCors("AllowAll")]
         public void PutByName([FromRoute] string imageName, [FromRoute] string imageLink)
         {
             _imageRepository.UpdateByName(imageName, imageLink);
         }
 
         [HttpDelete("delete/by-id/{imageID}")]
+        [EnableCors("AllowAll")]
         public void Delete([FromRoute] int imageID)
         {
             _imageRepository.DeleteByID(imageID);
@@ -69,6 +77,7 @@ namespace PD4ExamAPI.Controllers
 
         //delete by imageName
         [HttpDelete("delete/by-name/{imageName}")]
+        [EnableCors("AllowAll")]
         public void DeleteByName([FromRoute] string imageName)
         {
             _imageRepository.DeleteByName(imageName);

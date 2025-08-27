@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using PD4ExamAPI.Models;
 using PD4ExamAPI.Repositories;
 
 namespace PD4ExamAPI.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("api/external-resources")]
     [ApiController]
     public class ExternalResourceController : Controller
@@ -16,6 +18,7 @@ namespace PD4ExamAPI.Controllers
         }
 
         [HttpGet("get/by-id/{resourceID}")]
+        [EnableCors("AllowAll")]
         public ExternalResource? Get([FromRoute] int resourceID)
         {
             return _context.ExternalResources.FirstOrDefault(e => e.ResourceId == resourceID);

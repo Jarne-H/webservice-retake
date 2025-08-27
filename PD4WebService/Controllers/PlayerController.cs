@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using PD4ExamAPI.Models;
 using PD4ExamAPI.Repositories;
 
 namespace PD4ExamAPI.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("api/player")]
     [ApiController]
     public class PlayerController : Controller
@@ -19,12 +21,14 @@ namespace PD4ExamAPI.Controllers
         }
 
         [HttpGet("get/{playerID}")]
+        [EnableCors("AllowAll")]
         public Player? Get([FromRoute] int playerID)
         {
             return _playerRepository.GetById(playerID);
         }
 
         [HttpPost("post/{name}")]
+        [EnableCors("AllowAll")]
         public void Post([FromRoute] string name)
         {
             _playerRepository.AddNewPlayer(name);
@@ -32,6 +36,7 @@ namespace PD4ExamAPI.Controllers
 
         //put
         [HttpPut("put/{playerID}/{name}")]
+        [EnableCors("AllowAll")]
         public void Put([FromRoute] int playerID, [FromRoute] string name)
         {
             _playerRepository.ChangePlayerByID(playerID, name);
@@ -39,6 +44,7 @@ namespace PD4ExamAPI.Controllers
 
 
         [HttpDelete("delete/{playerID}")]
+        [EnableCors("AllowAll")]
         public void Delete([FromRoute] int playerID)
         {
             if(playerID == 0)
