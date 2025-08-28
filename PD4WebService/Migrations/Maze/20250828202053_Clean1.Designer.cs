@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PD4ExamAPI.Models;
 
@@ -11,9 +12,11 @@ using PD4ExamAPI.Models;
 namespace PD4ExamAPI.Migrations.Maze
 {
     [DbContext(typeof(MazeContext))]
-    partial class MazeContextModelSnapshot : ModelSnapshot
+    [Migration("20250828202053_Clean1")]
+    partial class Clean1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

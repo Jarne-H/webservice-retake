@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PD4ExamAPI.Models;
 
 #nullable disable
 
-namespace PD4ExamAPI.Migrations.Maze
+namespace PD4ExamAPI.Migrations
 {
-    [DbContext(typeof(MazeContext))]
-    partial class MazeContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(MazeGameContext))]
+    [Migration("20250828200409_AddPlayfabAccountIDToPlayerDB")]
+    partial class AddPlayfabAccountIDToPlayerDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,11 +25,35 @@ namespace PD4ExamAPI.Migrations.Maze
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("PD4ExamAPI.Models.ExternalResource", b =>
+                {
+                    b.Property<int>("ResourceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ResourceId"));
+
+                    b.Property<string>("ResourceType")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("ResourceUrl")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("ResourceId");
+
+                    b.ToTable("ExternalResources");
+                });
+
             modelBuilder.Entity("PD4ExamAPI.Models.GameSession", b =>
                 {
                     b.Property<int>("GameSessionId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("GameSessionID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GameSessionId"));
 
                     b.Property<int>("MazeId")
                         .HasColumnType("int")
@@ -37,7 +64,7 @@ namespace PD4ExamAPI.Migrations.Maze
                         .HasColumnName("PlayerID");
 
                     b.Property<DateTime>("StartTime")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.HasKey("GameSessionId");
 
@@ -51,22 +78,23 @@ namespace PD4ExamAPI.Migrations.Maze
             modelBuilder.Entity("PD4ExamAPI.Models.Image", b =>
                 {
                     b.Property<int>("ImageId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ImageID");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageId"));
+
                     b.Property<string>("Link")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(200)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(200)")
                         .HasColumnName("link");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("name");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ImageId");
 
@@ -76,8 +104,11 @@ namespace PD4ExamAPI.Migrations.Maze
             modelBuilder.Entity("PD4ExamAPI.Models.Maze", b =>
                 {
                     b.Property<int>("MazeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("MazeID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MazeId"));
 
                     b.Property<DateOnly>("CreationDate")
                         .HasColumnType("date");
@@ -88,12 +119,10 @@ namespace PD4ExamAPI.Migrations.Maze
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<int?>("OriginalMazeId")
-                        .HasColumnType("int")
-                        .HasColumnName("OriginalMazeID");
+                        .HasColumnType("int");
 
                     b.HasKey("MazeId");
 
@@ -103,8 +132,11 @@ namespace PD4ExamAPI.Migrations.Maze
             modelBuilder.Entity("PD4ExamAPI.Models.MazeTile", b =>
                 {
                     b.Property<int>("TileId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("TileID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TileId"));
 
                     b.Property<int>("ColumnIndex")
                         .HasColumnType("int");
@@ -122,8 +154,7 @@ namespace PD4ExamAPI.Migrations.Maze
                     b.Property<string>("TileType")
                         .IsRequired()
                         .HasMaxLength(1)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(1)");
+                        .HasColumnType("nvarchar(1)");
 
                     b.HasKey("TileId");
 
@@ -135,8 +166,11 @@ namespace PD4ExamAPI.Migrations.Maze
             modelBuilder.Entity("PD4ExamAPI.Models.Player", b =>
                 {
                     b.Property<int>("PlayerId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("PlayerID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlayerId"));
 
                     b.Property<DateOnly>("CreationDate")
                         .HasColumnType("date");
@@ -144,8 +178,7 @@ namespace PD4ExamAPI.Migrations.Maze
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("PlayfabAccountID")
                         .IsRequired()
@@ -162,7 +195,7 @@ namespace PD4ExamAPI.Migrations.Maze
                         .WithMany("GameSessions")
                         .HasForeignKey("MazeId")
                         .IsRequired()
-                        .HasConstraintName("FK_GameSession_GameSession");
+                        .HasConstraintName("FK_GameSession_Maze");
 
                     b.HasOne("PD4ExamAPI.Models.Player", "Player")
                         .WithMany("GameSessions")
@@ -180,6 +213,7 @@ namespace PD4ExamAPI.Migrations.Maze
                     b.HasOne("PD4ExamAPI.Models.Maze", "Maze")
                         .WithMany("MazeTiles")
                         .HasForeignKey("MazeId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_MazeTile_Maze");
 

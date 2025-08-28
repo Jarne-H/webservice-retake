@@ -12,4 +12,6 @@ public partial class Player
     public DateOnly CreationDate { get; set; }
 
     public virtual ICollection<GameSession> GameSessions { get; set; } = new List<GameSession>();
+
+    public string PlayfabAccountID { get; set; }
 }
