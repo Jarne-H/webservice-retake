@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PD4WebService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb881d0595bcde4c9ca206961f0e262e59afb089")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8cb52b35e783a2d2df33537e0dd323cc3f530d92")]
 [assembly: System.Reflection.AssemblyProductAttribute("PD4WebService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PD4WebService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
