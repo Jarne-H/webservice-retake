@@ -837,6 +837,32 @@
   },
   {
     "ContainingType": "PD4ExamAPI.Controllers.PlayerController",
+    "Method": "GetByPlayfabID",
+    "RelativePath": "api/player/get/by-playfabid/{playfabID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playfabID",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.Player",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayerController",
     "Method": "Post",
     "RelativePath": "api/player/post/{name}",
     "HttpMethod": "POST",
@@ -845,6 +871,33 @@
     "Parameters": [
       {
         "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayerController",
+    "Method": "Post",
+    "RelativePath": "api/player/post/{name}/{playfabID}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "playfabID",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -872,6 +925,201 @@
       },
       {
         "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayfabItemController",
+    "Method": "DeleteAll",
+    "RelativePath": "api/PlayfabItem/delete/all",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayfabItemController",
+    "Method": "Delete",
+    "RelativePath": "api/PlayfabItem/delete/all/by-id/{playfabitemid}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playfabitemid",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayfabItemController",
+    "Method": "GetAll",
+    "RelativePath": "api/PlayfabItem/get/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PD4ExamAPI.Models.PlayfabItem, PD4WebService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayfabItemController",
+    "Method": "GetByPlayfabID",
+    "RelativePath": "api/PlayfabItem/get/all/by-playfabid/{playfabID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playfabID",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PD4ExamAPI.Models.PlayfabItem, PD4WebService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayfabItemController",
+    "Method": "GetByIDAndName",
+    "RelativePath": "api/PlayfabItem/get/by-id-and-name/{playfabID},{displayName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playfabID",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "displayName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.PlayfabItem",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayfabItemController",
+    "Method": "GetByItemID",
+    "RelativePath": "api/PlayfabItem/get/by-itemid/{itemID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PD4ExamAPI.Models.PlayfabItem",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayfabItemController",
+    "Method": "Post",
+    "RelativePath": "api/PlayfabItem/post/{playfabID},{displayname}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playfabID",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "displayname",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PD4ExamAPI.Controllers.PlayfabItemController",
+    "Method": "Put",
+    "RelativePath": "api/PlayfabItem/put/{playfabID},{displayname}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playfabID",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "displayname",
         "Type": "System.String",
         "IsRequired": true
       }

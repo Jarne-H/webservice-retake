@@ -1138,6 +1138,45 @@
         }
       }
     },
+    "/api/player/get/by-playfabid/{playfabID}": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "parameters": [
+          {
+            "name": "playfabID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/player/post/{name}": {
       "post": {
         "tags": [
@@ -1146,6 +1185,36 @@
         "parameters": [
           {
             "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/player/post/{name}/{playfabID}": {
+      "post": {
+        "tags": [
+          "Player"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "playfabID",
             "in": "path",
             "required": true,
             "schema": {
@@ -1206,6 +1275,273 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PlayfabItem/get/all": {
+      "get": {
+        "tags": [
+          "PlayfabItem"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayfabItem"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayfabItem"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayfabItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PlayfabItem/get/all/by-playfabid/{playfabID}": {
+      "get": {
+        "tags": [
+          "PlayfabItem"
+        ],
+        "parameters": [
+          {
+            "name": "playfabID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayfabItem"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayfabItem"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayfabItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PlayfabItem/get/by-id-and-name/{playfabID},{displayName}": {
+      "get": {
+        "tags": [
+          "PlayfabItem"
+        ],
+        "parameters": [
+          {
+            "name": "playfabID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "displayName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayfabItem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayfabItem"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayfabItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PlayfabItem/get/by-itemid/{itemID}": {
+      "get": {
+        "tags": [
+          "PlayfabItem"
+        ],
+        "parameters": [
+          {
+            "name": "itemID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayfabItem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayfabItem"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayfabItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PlayfabItem/post/{playfabID},{displayname}": {
+      "post": {
+        "tags": [
+          "PlayfabItem"
+        ],
+        "parameters": [
+          {
+            "name": "playfabID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "displayname",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PlayfabItem/put/{playfabID},{displayname}": {
+      "put": {
+        "tags": [
+          "PlayfabItem"
+        ],
+        "parameters": [
+          {
+            "name": "playfabID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "displayname",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PlayfabItem/delete/all/by-id/{playfabitemid}": {
+      "delete": {
+        "tags": [
+          "PlayfabItem"
+        ],
+        "parameters": [
+          {
+            "name": "playfabitemid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PlayfabItem/delete/all": {
+      "delete": {
+        "tags": [
+          "PlayfabItem"
         ],
         "responses": {
           "200": {
@@ -1361,6 +1697,28 @@
             "items": {
               "$ref": "#/components/schemas/GameSession"
             },
+            "nullable": true
+          },
+          "playfabAccountID": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayfabItem": {
+        "type": "object",
+        "properties": {
+          "playfabItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "playfabid": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayname": {
+            "type": "string",
             "nullable": true
           }
         },

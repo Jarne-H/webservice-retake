@@ -27,11 +27,26 @@ namespace PD4ExamAPI.Controllers
             return _playerRepository.GetById(playerID);
         }
 
+        //get by playfabid
+        [HttpGet("get/by-playfabid/{playfabID}")]
+        [EnableCors("AllowAll")]
+        public Player? GetByPlayfabID([FromRoute] string playfabID)
+        {
+            return _playerRepository.GetByPlayfabID(playfabID);
+        }
+
         [HttpPost("post/{name}")]
         [EnableCors("AllowAll")]
         public void Post([FromRoute] string name)
         {
             _playerRepository.AddNewPlayer(name);
+        }
+
+        [HttpPost("post/{name}/{playfabID}")]
+        [EnableCors("AllowAll")]
+        public void Post([FromRoute] string name, [FromRoute] string playfabID)
+        {
+            _playerRepository.AddNewPlayer(name, playfabID);
         }
 
         //put

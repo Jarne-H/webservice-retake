@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace PD4ExamAPI.Models;
 
@@ -24,6 +22,8 @@ public partial class MazeContext : DbContext
     public virtual DbSet<MazeTile> MazeTiles { get; set; }
 
     public virtual DbSet<Player> Players { get; set; }
+
+    public virtual DbSet<PlayfabItem> PlayfabItems { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -113,6 +113,31 @@ public partial class MazeContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(30)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<PlayfabItem>(entity =>
+        {
+
+            entity.HasKey(e => e.PlayfabItemId);
+
+            entity.ToTable("PlayfabItem");
+
+            //add playfabitemid
+            entity.Property(e => e.PlayfabItemId)
+                .ValueGeneratedOnAdd()
+                .HasMaxLength(60)
+                .HasColumnName("PlayfabItemID");
+
+
+            entity.Property(e => e.playfabid)
+                .ValueGeneratedNever()
+                .HasMaxLength(60)
+                .IsUnicode(false)
+                .HasColumnName("playfabid");
+            entity.Property(e => e.displayname)
+                .HasMaxLength(60)
+                .IsUnicode(false)
+                .HasColumnName("displayname");
         });
 
         OnModelCreatingPartial(modelBuilder);

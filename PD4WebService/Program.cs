@@ -24,11 +24,11 @@ builder.Services.AddCors((options) =>
 {
     options.AddPolicy("AllowAll", builder =>
     {
-        builder/*.WithOrigins(allowedOrigins)*/
+        builder
+        //.WithOrigins(allowedOrigins).AllowCredentials()
               .AllowAnyOrigin()
               .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials();
+              .AllowAnyMethod();
     });
 });
 

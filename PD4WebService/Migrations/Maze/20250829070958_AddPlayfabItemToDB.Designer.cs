@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PD4ExamAPI.Models;
 
@@ -11,9 +12,11 @@ using PD4ExamAPI.Models;
 namespace PD4ExamAPI.Migrations.Maze
 {
     [DbContext(typeof(MazeContext))]
-    partial class MazeContextModelSnapshot : ModelSnapshot
+    [Migration("20250829070958_AddPlayfabItemToDB")]
+    partial class AddPlayfabItemToDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -158,13 +161,9 @@ namespace PD4ExamAPI.Migrations.Maze
 
             modelBuilder.Entity("PD4ExamAPI.Models.PlayfabItem", b =>
                 {
-                    b.Property<int>("PlayfabItemId")
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(60)
+                    b.Property<int>("playfabid")
                         .HasColumnType("int")
-                        .HasColumnName("PlayfabItemID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlayfabItemId"));
+                        .HasColumnName("playfabid");
 
                     b.Property<string>("displayname")
                         .IsRequired()
@@ -173,14 +172,7 @@ namespace PD4ExamAPI.Migrations.Maze
                         .HasColumnType("varchar(60)")
                         .HasColumnName("displayname");
 
-                    b.Property<string>("playfabid")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(60)")
-                        .HasColumnName("playfabid");
-
-                    b.HasKey("PlayfabItemId");
+                    b.HasKey("playfabid");
 
                     b.ToTable("PlayfabItem", (string)null);
                 });
